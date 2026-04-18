@@ -85,7 +85,7 @@ If you use this pipeline:
   author = {Scott, Trevor},
   title  = {Topological Signatures of Multipartite Entanglement in H->ZZ* Decays at the LHC},
   year   = {2026},
-  url    = {https://github.com/[YOUR_USERNAME]/rwf-hzz}
+  url    = {https://github.com/trevorscott/topological-signatures-entanglement}
 }
 ```
 
