@@ -38,7 +38,7 @@ The $100\times$ hierarchy in pairwise entanglements is a direct topological enco
 | `atlas_ttbar_signature.py` | Applies the pipeline to the ATLAS tt̄ measurement. |
 | `hzz_signature.py` | Main analysis: scans $m_{Z^*} \in [10, 60]$ GeV and computes $\chi(K_W)$ at each. |
 | `generate_figures.py` | Produces the three paper figures. |
-| `rwf_hzz_methodology.tex` | Full paper draft, Overleaf-ready. |
+| [CERN___Topological_Signatures_of_Multipartite_Entanglement.pdf](https://github.com/trevorscott/topological-signatures-entanglement/blob/main/CERN___Topological_Signatures_of_Multipartite_Entanglement.pdf)| Related Write up|
 
 ## Installation
 
