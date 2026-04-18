@@ -1,6 +1,6 @@
 # RWF Topological Signatures at the LHC
 
-A pipeline applying the Relational Witnessing Framework's flag-complex construction (Scott 2026, Section 6) to multipartite quantum states measured at the LHC. Validates on the ATLAS $t\bar{t}$ entanglement measurement and computes the tripartite topological signature of $H \to ZZ^*$.
+A pipeline applying the [Relational Witnessing Framework's](https://github.com/trevorscott/relational-witnessing-framework) flag-complex construction (Scott 2026, Section 6) to multipartite quantum states measured at the LHC. Validates on the ATLAS $t\bar{t}$ entanglement measurement and computes the tripartite topological signature of $H \to ZZ^*$.
 
 ## What this is
 
@@ -95,7 +95,8 @@ And cite the foundational framework:
 @misc{scott2026rwf,
   author = {Scott, Trevor},
   title  = {The Relational Witnessing Framework: The Emergence of Time and Experience from Entanglement Entropy},
-  year   = {2026}
+  year   = {2026},
+  url    = {https://github.com/trevorscott/relational-witnessing-framework}
 }
 ```
 
