@@ -1,0 +1,101 @@
+#: table_doi: 10.17182/hepdata.153301.v1/t1
+#: name: Results for full matrix inclusive from m(tt)
+#: description: Results for full matrix measurement inclusive from $m(t\bar{t})$
+#: data_file: results_for_full_matrix_inclusive_from_m(tt).yaml
+#: keyword reactions: P P --> TOP TOPBAR
+#: keyword cmenergies: 13000
+#: RE,P P --> TOP TOPBAR
+#: SQRT(S) [TeV],13
+#: LUMI [fb$^{-1}$],138
+#: Results for,full matrix measurement inclusive from $m(t\bar{t})$
+#: Location,Figure 17, upper panel
+Coefficient name,Measured coefficient value,stat +,stat -,syst +,syst -
+$c$ for inclusive measurement,0.93781,0.00090587,-0.00090587,0.053138,-0.053138
+$P_{r}$ for inclusive measurement,-0.0036959,0.0072204,-0.0072204,0.002796,-0.002796
+$P_{n}$ for inclusive measurement,0.0080024,0.0060895,-0.0060895,0.0014546,-0.0014546
+$P_{k}$ for inclusive measurement,0.01347,0.0042501,-0.0042501,0.0053078,-0.0053078
+$\bar{P}_{r}$ for inclusive measurement,-0.016752,0.0071795,-0.0071795,0.0030435,-0.0030435
+$\bar{P}_{n}$ for inclusive measurement,0.0036164,0.0060441,-0.0060441,0.0013917,-0.0013917
+$\bar{P}_{k}$ for inclusive measurement,0.014267,0.0042312,-0.0042312,0.0051544,-0.0051544
+$C_{rr}$ for inclusive measurement,0.027871,0.015677,-0.015677,0.0057788,-0.0057788
+$C_{nn}$ for inclusive measurement,0.33004,0.0083106,-0.0083106,0.0061331,-0.0061331
+$C_{kk}$ for inclusive measurement,0.3053,0.016719,-0.016719,0.011012,-0.011012
+$C_{nr}^{+}$ for inclusive measurement,0.014206,0.018296,-0.018296,0.0039482,-0.0039482
+$C_{rk}^{+}$ for inclusive measurement,-0.20758,0.032952,-0.032952,0.011615,-0.011615
+$C_{nk}^{+}$ for inclusive measurement,0.0089442,0.025831,-0.025831,0.0058753,-0.0058753
+$C_{nr}^{-}$ for inclusive measurement,-0.015895,0.016533,-0.016533,0.0035233,-0.0035233
+$C_{rk}^{-}$ for inclusive measurement,-0.0088241,0.029678,-0.029678,0.0066426,-0.0066426
+$C_{nk}^{-}$ for inclusive measurement,0.021695,0.024966,-0.024966,0.0057692,-0.0057692
+
+Coefficient name,Powheg+P8 predicted coefficient,ME scale and PDF uncertainties +,ME scale and PDF uncertainties -
+$c$ for inclusive measurement,1.0,0.11087,-0.11087
+$P_{r}$ for inclusive measurement,0.0021723,2.4084e-05,-2.4084e-05
+$P_{n}$ for inclusive measurement,-0.00018326,2.2463e-05,-2.2463e-05
+$P_{k}$ for inclusive measurement,0.0049903,2.598e-05,-2.598e-05
+$\bar{P}_{r}$ for inclusive measurement,0.0020693,1.7233e-05,-1.7233e-05
+$\bar{P}_{n}$ for inclusive measurement,-8.8219e-06,2.3015e-05,-2.3015e-05
+$\bar{P}_{k}$ for inclusive measurement,0.0049602,2.8114e-05,-2.8114e-05
+$C_{rr}$ for inclusive measurement,0.042193,0.0063294,-0.0063294
+$C_{nn}$ for inclusive measurement,0.31645,0.00099917,-0.00099917
+$C_{kk}$ for inclusive measurement,0.30792,0.0049272,-0.0049272
+$C_{nr}^{+}$ for inclusive measurement,0.00044545,7.3371e-05,-7.3371e-05
+$C_{rk}^{+}$ for inclusive measurement,-0.20621,0.0030746,-0.0030746
+$C_{nk}^{+}$ for inclusive measurement,5.4577e-05,5.4278e-05,-5.4278e-05
+$C_{nr}^{-}$ for inclusive measurement,-6.59e-05,7.0145e-05,-7.0145e-05
+$C_{rk}^{-}$ for inclusive measurement,0.00089932,8.6549e-05,-8.6549e-05
+$C_{nk}^{-}$ for inclusive measurement,0.00022864,0.00011831,-0.00011831
+
+Coefficient name,Powheg+H7 predicted coefficient
+$c$ for inclusive measurement,1.0
+$P_{r}$ for inclusive measurement,0.0024412
+$P_{n}$ for inclusive measurement,-1.569e-05
+$P_{k}$ for inclusive measurement,0.0058138
+$\bar{P}_{r}$ for inclusive measurement,0.0017175
+$\bar{P}_{n}$ for inclusive measurement,0.00014068
+$\bar{P}_{k}$ for inclusive measurement,0.0058643
+$C_{rr}$ for inclusive measurement,0.032414
+$C_{nn}$ for inclusive measurement,0.30427
+$C_{kk}$ for inclusive measurement,0.29076
+$C_{nr}^{+}$ for inclusive measurement,0.00028725
+$C_{rk}^{+}$ for inclusive measurement,-0.2022
+$C_{nk}^{+}$ for inclusive measurement,0.00070355
+$C_{nr}^{-}$ for inclusive measurement,0.00011049
+$C_{rk}^{-}$ for inclusive measurement,0.00070154
+$C_{nk}^{-}$ for inclusive measurement,-0.00047611
+
+Coefficient name,MG5_aMC+P8 predicted coefficient
+$c$ for inclusive measurement,0.99996
+$P_{r}$ for inclusive measurement,0.00055576
+$P_{n}$ for inclusive measurement,-1.5034e-05
+$P_{k}$ for inclusive measurement,-0.0016726
+$\bar{P}_{r}$ for inclusive measurement,-0.00042403
+$\bar{P}_{n}$ for inclusive measurement,6.9171e-05
+$\bar{P}_{k}$ for inclusive measurement,-0.0014405
+$C_{rr}$ for inclusive measurement,0.04305
+$C_{nn}$ for inclusive measurement,0.31687
+$C_{kk}$ for inclusive measurement,0.31431
+$C_{nr}^{+}$ for inclusive measurement,-0.00030782
+$C_{rk}^{+}$ for inclusive measurement,-0.20528
+$C_{nk}^{+}$ for inclusive measurement,0.0011332
+$C_{nr}^{-}$ for inclusive measurement,0.0010337
+$C_{rk}^{-}$ for inclusive measurement,-0.0010084
+$C_{nk}^{-}$ for inclusive measurement,0.0020196
+
+Coefficient name,MiNNLO+P8 predicted coefficient
+$c$ for inclusive measurement,0.99999
+$P_{r}$ for inclusive measurement,0.0017906
+$P_{n}$ for inclusive measurement,-0.00055913
+$P_{k}$ for inclusive measurement,0.0020176
+$\bar{P}_{r}$ for inclusive measurement,0.0011206
+$\bar{P}_{n}$ for inclusive measurement,0.0014263
+$\bar{P}_{k}$ for inclusive measurement,0.0025515
+$C_{rr}$ for inclusive measurement,0.05273
+$C_{nn}$ for inclusive measurement,0.31108
+$C_{kk}$ for inclusive measurement,0.31629
+$C_{nr}^{+}$ for inclusive measurement,0.00029282
+$C_{rk}^{+}$ for inclusive measurement,-0.1985
+$C_{nk}^{+}$ for inclusive measurement,-0.0012651
+$C_{nr}^{-}$ for inclusive measurement,-0.0010673
+$C_{rk}^{-}$ for inclusive measurement,-0.0010541
+$C_{nk}^{-}$ for inclusive measurement,0.00027111
+
