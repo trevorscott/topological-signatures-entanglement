@@ -19,16 +19,16 @@
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
 
-\title{Differential Log-Negativity of the Measured \texorpdfstring{$t\bar{t}$}{ttbar} Spin Density Matrix, with a Topological Extension to Higgs Decays}
+\title{Topological Signatures of Quantum Entanglement at the LHC: Measurement in \texorpdfstring{$t\bar{t}$}{ttbar} and Prediction for \texorpdfstring{$H \to ZZ^*$}{H to ZZ*}}
 
-\author{Trevor Scott\thanks{Correspondence: \texttt{[your email]}. Code and data: \texttt{[github URL]}.}}
+\author{Trevor Scott\thanks{Correspondence: \texttt{marquan03@gmail.com}. Code and data: \url{https://github.com/trevorscott/topological-signatures-entanglement}.}}
 \date{\today}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We present the first computation of the logarithmic negativity $E_N(t{:}\bar{t})$ of the measured $t\bar{t}$ spin density matrix resolved across invariant-mass bins, using the full 15-coefficient reconstruction from CMS's 138\,fb$^{-1}$ differential measurement~\cite{CMS2024}. With covariance-matrix-propagated uncertainties and positivity-preserving projection of unphysical samples, we find $E_N(t{:}\bar{t}) = 0.18\,[0.13, 0.29]$ bits at the $m_{t\bar{t}}$ threshold (300--400\,GeV, 68\% CL), and $E_N$ consistent with zero in the three higher-mass bins (400--600, 600--800, $>$800\,GeV) at the resolution of the inclusive $|\cos\theta|$ selection. Alongside $E_N$ we compute both conventional singlet witness $D = -\text{Tr}(C)/3$ and the triplet witness $\tilde{D} = (C_{nn} - C_{kk} - C_{rr})/3$, observing the expected monotonic transition from singlet-like threshold region to triplet-like boosted regime. As a theoretical extension to multipartite systems, we apply the flag-complex persistent-homology construction of the Relational Witnessing Framework~\cite{Scott2026RWF} to the Standard Model tripartite density operator for $H \to ZZ^*$ of Aguilar-Saavedra~\cite{AS2024}, finding an $L$-centric topological signature with $E_N(L{:}S_i) \approx 1.0$ bits and $E_N(S_1{:}S_2) \lesssim 0.01$ bits. This extension is a prediction for Run 3, not a claim about existing measurement; the tripartite $H \to ZZ^*$ density operator has not yet been measured. All code and data are public; see Section~\ref{sec:code}.
+We present the first computation of the logarithmic negativity $E_N(t{:}\bar{t})$ of the measured $t\bar{t}$ spin density matrix resolved across invariant-mass bins, using the full 15-coefficient reconstruction from CMS's 138\,fb$^{-1}$ differential measurement~\cite{CMS2024}. With covariance-matrix-propagated uncertainties and positivity-preserving projection of unphysical samples, we find $E_N(t{:}\bar{t}) = 0.18\,[0.13, 0.29]$ bits at the $m_{t\bar{t}}$ threshold (300--400\,GeV, 68\% CL), and $E_N$ consistent with zero in the three higher-mass bins (400--600, 600--800, $>$800\,GeV) at the resolution of the inclusive $|\cos\theta|$ selection. Alongside $E_N$ we compute both conventional singlet witness $D = -\text{Tr}(C)/3$ and the triplet witness $\tilde{D} = (C_{nn} - C_{kk} - C_{rr})/3$, observing the expected monotonic transition from singlet-like threshold region to triplet-like boosted regime. As a theoretical extension to multipartite systems, we apply the flag-complex persistent-homology construction of the Relational Witnessing Framework~\cite{Scott2026RWF}---which specializes to logarithmic negativity the general persistent-homology-of-entanglement program of~\cite{DiPierro2018, Mengoni2019, Olsthoorn2023, HamiltonLeditzky2024, Spellman2025}---to the Standard Model tripartite density operator for $H \to ZZ^*$ of Aguilar-Saavedra~\cite{AS2024}, finding an $L$-centric topological signature with $E_N(L{:}S_i) \approx 1.0$ bits and $E_N(S_1{:}S_2) \lesssim 0.01$ bits. This extension is a prediction for Run 3, not a claim about existing measurement; the tripartite $H \to ZZ^*$ density operator has not yet been measured. All code and data are public; see Section~\ref{sec:code}.
 \end{abstract}
 
 \section{Introduction}
@@ -42,6 +42,10 @@ In this paper we make two contributions. First, we compute the logarithmic negat
 E_N(\rho) = \log_2 \lVert \rho^{T_A} \rVert_1
 \end{equation}
 directly from the measured 15-coefficient $t\bar{t}$ spin density matrix, in each $m_{t\bar{t}}$ bin. This is a stronger observable than $D$ or $\tilde{D}$: it is zero exactly when $\rho$ is separable (by the Peres-Horodecki criterion), it is additive, and it quantifies the entanglement on an information-theoretic scale (bits). We propagate uncertainties via Monte Carlo on the full 16-dimensional covariance matrix from HEPData, with positivity-preserving projection of unphysical samples. Second, we extend the methodology to multipartite quantum systems by applying the flag-complex persistent-homology construction of~\cite{Scott2026RWF} to the Standard Model tripartite density operator of~\cite{AS2024} for $H \to ZZ^*$. This section is a theoretical prediction for a system that has not yet been measured, setting a target for Run 3 tripartite tomography.
+
+\paragraph{Relation to prior work.} This paper sits at the intersection of two literatures that have developed in parallel. On the quantum-information side, persistent homology has been applied to multipartite entanglement in condensed-matter and abstract-quantum-state contexts by Di~Pierro et al.~\cite{DiPierro2018}, Mengoni et al.~\cite{Mengoni2019}, Olsthoorn~\cite{Olsthoorn2023}, and Hamilton \& Leditzky~\cite{HamiltonLeditzky2024}, with subsequent operational interpretations by~\cite{Spellman2025}; these works use various pairwise entanglement or correlation functionals (quantum mutual information, Tsallis-deformed total correlation, linear entropy) as simplicial filtration parameters. On the collider side, topological data analysis has been applied to LHC event data by Beuria~\cite{Beuria2023, Beuria2024} and Gaertner \& Reiten~\cite{GaertnerReiten2023}, using event-level kinematics and jet substructure rather than entanglement measures. The present paper's contribution is to bridge these two programs: we apply a persistent-homology-of-entanglement construction to a density matrix reconstructed from collider data. To our knowledge this intersection has not previously been explored. The specific choice of logarithmic negativity as the pairwise weight~\cite{Scott2026RWF} is motivated by the inherent mixedness of reduced density matrices obtained from collider tomography, where the global state is not observed directly.
+
+\paragraph{Scope limitation.} We compute $E_N$ directly on the bipartite $t\bar{t}$ system, where the CMS 15-coefficient measurement~\cite{CMS2024} provides a density matrix reconstruction that is validated against predictions from the standard entanglement-at-colliders literature~\cite{Afik2021, ATLAS2024}. We do not extend the measurement program to measured $ZZ$ density matrices from $H \to ZZ^*$ or diboson production. As Grossi, Pelliccioli, and Vicini~\cite{GPV2024} have documented in detail, the tree-level mapping from measured angular coefficients to density-matrix elements breaks down at NLO: their Table~4 reports a 90\%+ suppression of the $\gamma_{1,0,1,0}$ coefficient from LO to NLO EW in $H \to ZZ^*$, and Pelliccioli et al.~\cite{Pelliccioli2025NLO} find analogous $-35\%$ NLO EW shifts in the spin-analyzing power. Fiducial selections and neutrino reconstruction further break the rank-2 expansion, and model-independent extrapolation to the inclusive phase space is not generically available. Constructing measured $ZZ$ density matrices for topological analysis therefore requires the NLO-corrected tomography procedure of~\cite{Pelliccioli2025NLO}, which is beyond the scope of this methods paper. The H→ZZ* prediction in Section~\ref{sec:hzz} is therefore reported as a Standard Model theoretical target rather than as an observable we extract from existing data.
 
 \section{Methodology}\label{sec:methodology}
 
@@ -113,7 +117,7 @@ We now apply the flag-complex construction of the Relational Witnessing Framewor
 
 \subsection{The flag-complex construction}
 
-Given an $n$-partite state $\rho$, RWF Definition 2 constructs the entanglement complex $K_W$ as:
+Given an $n$-partite state $\rho$, RWF Definition 2 constructs the entanglement complex $K_W$ as follows (see the introduction above for the relation to prior persistent-homology-of-entanglement constructions~\cite{DiPierro2018, Mengoni2019, Olsthoorn2023, HamiltonLeditzky2024}):
 \begin{itemize}
 \item 0-simplices: the $n$ subsystems;
 \item 1-simplices: pairs $(i, j)$ with weight $w_{ij} = E_N(i{:}j) = \log_2 \lVert \rho_{ij}^{T_i}\rVert_1$ on the reduced pair state $\rho_{ij} = \text{Tr}_{\{k:k\neq i,j\}}(\rho)$;
@@ -148,9 +152,9 @@ This is a direct topological encoding of the fact that in $H \to ZZ^*$, the two 
 
 \subsection{Limitations}
 
-This section is a theoretical prediction. The Aguilar-Saavedra density operator is an SM leading-order analytical construction; the tripartite operator has not yet been measured. With Run 3 $H \to ZZ \to 4\ell$ data, the tripartite tomography of~\cite{AS2024} establishes the measured operator at $>5\sigma$ per bin, at which point this analysis could be repeated on measured data and reported alongside the bipartite $t\bar{t}$ result as a genuinely multipartite collider observable.
+This section is a theoretical prediction. The Aguilar-Saavedra density operator is an SM leading-order analytical construction; the tripartite operator has not yet been measured. Two paths to validation are visible. CMS has recently reported a polarization density matrix in $H \to 4\ell$ based on 200\,fb$^{-1}$ of Run~2+3 data~\cite{CMS-HIG-25-011}, excluding fully longitudinal and fully transverse $Z$-boson polarization at more than $6\sigma$---exactly the regime where the $L$-centric topological structure we predict would be most visible. With the full tripartite tomography of~\cite{AS2024} and the NLO-corrected procedure of~\cite{Pelliccioli2025NLO}, that measurement could in principle be extended to the full $9 \times 3 \times 3$ tripartite density operator; at that point the present analysis could be repeated on measured data and reported alongside the bipartite $t\bar{t}$ result as a genuinely multipartite collider observable.
 
-We note two limitations of the flag-complex construction itself, also discussed in~\cite{Scott2026RWF}: (i) the flag complex is blind to genuinely multipartite entanglement that leaves no trace on pair marginals. We have verified numerically that $n$-qubit GHZ states and $4$-qubit cluster states both yield trivial flag complexes. The $H \to ZZ^*$ state, by contrast, produces the non-trivial $L$-centric signature we report because its multipartite structure does leak through pair marginals. (ii) The $l=0$ Clebsch-Gordan block in our construction of $|\psi\rangle$ uses a $1/\sqrt{3}$ ansatz that we have not verified against~\cite{AS2024}'s eq.~(7). The $l=2$ block, which dominates $E_N(L{:}S_i)$, is exact; the residual $S_1$-$S_2$ entanglement may shift by an $\mathcal{O}(1)$ factor but remains suppressed relative to the $L$-$S$ edges.
+We note two limitations of the flag-complex construction itself, also discussed in~\cite{Scott2026RWF}: (i) the flag complex is blind to genuinely multipartite entanglement that leaves no trace on pair marginals---a limitation well-known in the broader persistent-homology-of-entanglement literature~\cite{DiPierro2018, HamiltonLeditzky2024}. We have verified numerically that $n$-qubit GHZ states and $4$-qubit cluster states both yield trivial flag complexes. The $H \to ZZ^*$ state, by contrast, produces the non-trivial $L$-centric signature we report because its multipartite structure does leak through pair marginals. (ii) The $l=0$ Clebsch-Gordan block in our construction of $|\psi\rangle$ uses a $1/\sqrt{3}$ ansatz that we have not verified against~\cite{AS2024}'s eq.~(7). The $l=2$ block, which dominates $E_N(L{:}S_i)$, is exact; the residual $S_1$-$S_2$ entanglement may shift by an $\mathcal{O}(1)$ factor but remains suppressed relative to the $L$-$S$ edges.
 
 \section{Code availability}\label{sec:code}
 
@@ -159,16 +163,14 @@ All code and data are publicly available:
 \begin{itemize}
 \item \textbf{Pipeline}: density matrix reconstruction, log-negativity computation, flag-complex persistent homology, covariance-propagated Monte Carlo.
 \item \textbf{CMS data}: from HEPData record \texttt{ins2829523}~\cite{CMS2024data} (tables t9, t10).
-\item \textbf{Repository}: \texttt{[github URL]}.
+\item \textbf{Repository}: \url{https://github.com/trevorscott/topological-signatures-entanglement}.
 \end{itemize}
 
 The analysis reproduces from a clean Python environment in under 30 seconds per script.
 
 \section{Conclusion}
 
-We have presented the first log-negativity measurement of the $t\bar{t}$ spin density matrix at the LHC, resolved across the $m_{t\bar{t}}$ phase space, with covariance-propagated uncertainties. The measured threshold state has $E_N = 0.18\,[0.13, 0.29]$ bits at 68\% CL. The complementary evolution of $D$ and $\tilde{D}$ across the four kinematic bins captures the singlet-to-triplet transition characteristic of QCD top-pair production. The framework extends to multipartite systems via the flag-complex construction of~\cite{Scott2026RWF}, and we report the SM prediction for $H \to ZZ^*$ as a target for Run 3 tripartite tomography.
-
-\paragraph{Acknowledgments.} T.S. thanks [collaborators] for discussion on quantum observables at the LHC and on the Aguilar-Saavedra construction.
+We have presented the first log-negativity measurement of the $t\bar{t}$ spin density matrix at the LHC, resolved across the $m_{t\bar{t}}$ phase space, with covariance-propagated uncertainties. The measured threshold state has $E_N = 0.18\,[0.13, 0.29]$ bits at 68\% CL. The complementary evolution of $D$ and $\tilde{D}$ across the four kinematic bins captures the singlet-to-triplet transition characteristic of QCD top-pair production. The framework extends to multipartite systems via the flag-complex construction of~\cite{Scott2026RWF}, which specializes the general persistent-homology-of-entanglement program~\cite{DiPierro2018, Olsthoorn2023, HamiltonLeditzky2024} to logarithmic negativity; we report the SM prediction for $H \to ZZ^*$ as a target for Run 3 tripartite tomography, complementary to the ongoing CMS spin-correlation measurement~\cite{CMS-HIG-25-011}.
 
 \begin{thebibliography}{99}
 
@@ -204,6 +206,47 @@ The GUDHI Project, \emph{GUDHI User and Reference Manual} (GUDHI Editorial Board
 
 \bibitem{CohenSteiner2007}
 D.~Cohen-Steiner, H.~Edelsbrunner, and J.~Harer, ``Stability of persistence diagrams,'' \emph{Discrete Comput.~Geom.} \textbf{37}, 103 (2007).
+
+% --- Prior art: persistent homology of multipartite entanglement ---
+
+\bibitem{DiPierro2018}
+A.~Di~Pierro, S.~Mancini, L.~Memarzadeh, and R.~Mengoni, ``Homological analysis of multi-qubit entanglement,'' \emph{Europhys.~Lett.} \textbf{123}, 30006 (2018) [\texttt{arXiv:1802.04572}].
+
+\bibitem{Mengoni2019}
+R.~Mengoni, L.~Memarzadeh, A.~Di~Pierro, and S.~Mancini, ``Persistent homology analysis of multiqubit entanglement,'' (2019) [\texttt{arXiv:1907.06914}].
+
+\bibitem{Olsthoorn2023}
+B.~Olsthoorn, ``Persistent homology of quantum entanglement,'' \emph{Phys.~Rev.~B} \textbf{107}, 115174 (2023) [\texttt{arXiv:2110.10214}].
+
+\bibitem{HamiltonLeditzky2024}
+G.~A.~Hamilton and F.~Leditzky, ``Probing multipartite entanglement through persistent homology,'' \emph{Commun.~Math.~Phys.} \textbf{405}, 125 (2024) [\texttt{arXiv:2307.07492}].
+
+\bibitem{Spellman2025}
+C.~Spellman \emph{et al.}, ``Interpreting Multipartite Entanglement through Topological Summaries,'' (2025) [\texttt{arXiv:2505.00642}].
+
+% --- Prior art: topological data analysis at colliders (non-entanglement) ---
+
+\bibitem{Beuria2023}
+J.~Beuria, ``Persistent homology of collider observations: when (w)hole matters,'' \emph{Phys.~Lett.~B} \textbf{846}, 138188 (2023) [\texttt{arXiv:2308.10588}].
+
+\bibitem{Beuria2024}
+J.~Beuria, ``Intrinsic geometry of collider observations and Forman Ricci curvature,'' \emph{Phys.~Rev.~D} \textbf{110}, 035023 (2024) [\texttt{arXiv:2311.06610}].
+
+\bibitem{GaertnerReiten2023}
+T.~Gaertner and J.~Reiten, ``The simplicial substructure of jets,'' (2023) [\texttt{arXiv:2312.06596}].
+
+% --- NLO tomography and angular coefficient mapping ---
+
+\bibitem{GPV2024}
+M.~Grossi, G.~Pelliccioli, and A.~Vicini, ``From angular coefficients to quantum observables: a phenomenological appraisal in di-boson systems,'' \emph{JHEP} \textbf{12}, 120 (2024) [\texttt{arXiv:2409.16731}].
+
+\bibitem{Pelliccioli2025NLO}
+G.~Pelliccioli \emph{et al.}, ``Quantum tomography beyond the leading order,'' (2025) [\texttt{arXiv:2509.20456}].
+
+% --- Complementary Run 3 measurement ---
+
+\bibitem{CMS-HIG-25-011}
+CMS Collaboration, ``Study of spin correlations in Higgs boson decays to four leptons at CMS,'' CMS-PAS-HIG-25-011, CERN CDS record 2949823 (2025).
 
 \end{thebibliography}
 

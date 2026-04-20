@@ -1,7 +1,7 @@
-# Topological Signatures of Multipartite Entanglement at the LHC
+# Topological Signatures of Quantum Entanglement at the LHC
 
 Public code and data for the methodology paper
-*"Differential Log-Negativity of the Measured tt̄ Spin Density Matrix, with a Topological Extension to Higgs Decays."*
+*"Topological Signatures of Quantum Entanglement at the LHC: Measurement in tt̄ and Prediction for H → ZZ*."*
 
 The pipeline computes the logarithmic negativity $E_N$ of reconstructed quantum density matrices at the LHC (bipartite measured data) and builds the flag-complex topological signature $\chi(K_W)$ of the RWF framework [[Scott 2026]](#references) on multipartite systems (tripartite theoretical predictions).
 
@@ -43,7 +43,7 @@ This repo is scoped narrowly. It does not:
 ├── FINDINGS.md                            # development notes — honest history of what the data showed
 ├── GIT_SETUP.md                           # setup instructions
 ├── LICENSE                                # MIT
-├── rwf_hzz_methodology.tex                # the paper (Overleaf-ready LaTeX)
+├── topological_signatures_entanglement.tex # the paper (Overleaf-ready LaTeX)
 ├── fig_ttbar_3panel.png                   # headline figure: E_N, D, D-tilde across m(tt)
 ├── fig1_hzz_edge_weights.png              # H → ZZ* theory prediction: pairwise log-neg
 ├── fig2_hzz_persistence.png               # H → ZZ* persistence diagram
@@ -113,7 +113,7 @@ python3 hzz_signature.py
 python3 generate_figures.py
 
 # 6. Regenerate the paper (requires pdflatex or Overleaf)
-pdflatex rwf_hzz_methodology.tex
+pdflatex topological_signatures_entanglement.tex
 ```
 
 Total runtime: ~1 minute on a laptop.
@@ -152,9 +152,9 @@ For n ≥ 3, we apply RWF Definition 2 (flag complex weighted by pairwise E_N, f
 If you use this code, please cite:
 
 ```bibtex
-@article{Scott2026HZZ,
+@article{Scott2026TSE,
   author = {Scott, Trevor},
-  title  = {Differential Log-Negativity of the Measured $t\bar{t}$ Spin Density Matrix, with a Topological Extension to Higgs Decays},
+  title  = {Topological Signatures of Quantum Entanglement at the LHC: Measurement in $t\bar{t}$ and Prediction for $H \to ZZ^*$},
   year   = {2026},
   url    = {https://github.com/trevorscott/topological-signatures-entanglement}
 }
