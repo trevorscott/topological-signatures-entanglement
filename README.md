@@ -7,6 +7,14 @@ The pipeline computes the logarithmic negativity $E_N$ of reconstructed quantum 
 
 ---
 
+## Relation to the Relational Witnessing Framework
+
+This paper is an application of the flag-complex persistent-homology construction introduced in the [Relational Witnessing Framework](https://github.com/trevorscott/relational-witnessing-framework). RWF proposed logarithmic negativity as the physically motivated edge weight for entanglement complexes — this paper operationalizes that construction on real collider data.
+
+The bipartite tt̄ analysis (Section 3) instantiates the witnessing cut on a measured quantum system. The H → ZZ* prediction (Section 4) is the first case where the flag complex produces non-trivial persistent homology — an L-centric topological signature encoding the decay's entanglement structure. This is a testable prediction for Run 3 tripartite tomography.
+
+---
+
 ## Headline result
 
 The **first log-negativity measurement of the CMS tt̄ state resolved across $m_{t\bar{t}}$ bins**, using the full 15-coefficient reconstruction with covariance-propagated uncertainties:
@@ -41,7 +49,6 @@ This repo is scoped narrowly. It does not:
 .
 ├── README.md                              # this file
 ├── FINDINGS.md                            # development notes — honest history of what the data showed
-├── GIT_SETUP.md                           # setup instructions
 ├── LICENSE                                # MIT
 ├── topological_signatures_entanglement.tex # the paper (Overleaf-ready LaTeX)
 ├── fig_ttbar_3panel.png                   # headline figure: E_N, D, D-tilde across m(tt)
@@ -213,4 +220,4 @@ Code: MIT (see `LICENSE`). Paper (LaTeX + figures): CC-BY 4.0.
 
 ## Contact
 
-Trevor Scott · `marquan03@gmail.com` · [reverenceforthemystery.com](https://reverenceforthemystery.com)
+Trevor Scott · `marquan03@gmail.com` 
