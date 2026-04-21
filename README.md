@@ -1,45 +1,34 @@
-# Topological Signatures of Quantum Entanglement at the LHC
+# Collider Density Matrix & Topology Pipeline
 
-Public code and data for the methodology paper
-*"Topological Signatures of Quantum Entanglement at the LHC: Measurement in tt̄ and Prediction for H → ZZ*."*
+Public code and data pipeline for processing $t\bar{t}$ spin correlation measurements into information-theoretic and topological visualizations.
 
-The pipeline computes the logarithmic negativity $E_N$ of reconstructed quantum density matrices at the LHC (bipartite measured data) and builds the flag-complex topological signature $\chi(K_W)$ of the RWF framework [[Scott 2026]](#references) on multipartite systems (tripartite theoretical predictions).
-
----
-
-## Relation to the Relational Witnessing Framework
-
-This paper is an application of the flag-complex persistent-homology construction introduced in the [Relational Witnessing Framework](https://github.com/trevorscott/relational-witnessing-framework). RWF proposed logarithmic negativity as the physically motivated edge weight for entanglement complexes — this paper operationalizes that construction on real collider data.
-
-The bipartite tt̄ analysis (Section 3) instantiates the witnessing cut on a measured quantum system. The H → ZZ* prediction (Section 4) is the first case where the flag complex produces non-trivial persistent homology — an L-centric topological signature encoding the decay's entanglement structure. This is a testable prediction for Run 3 tripartite tomography.
+This repository provides an open-source Python toolchain to compute the logarithmic negativity $E_N$ of reconstructed quantum density matrices at the LHC from published HEPData. It also includes an exploratory module applying Topological Data Analysis (TDA) via flag-complex persistent homology to $n$-partite quantum states.
 
 ---
 
-## Headline result
+## ⚠️ Physics & Methodology Limitations
 
-The **first log-negativity measurement of the CMS tt̄ state resolved across $m_{t\bar{t}}$ bins**, using the full 15-coefficient reconstruction with covariance-propagated uncertainties:
+This pipeline is an exploratory methodological tool, and the outputs should be interpreted as **inferences under leading-order (LO) assumptions**, not direct measurements. Users should be aware of the following physical and mathematical constraints:
 
-| $m_{t\bar{t}}$ range [GeV] | $D$ | $\tilde{D}$ | $E_N$ [bits, 68% CL] |
-|---|---|---|---|
-| 300–400 (threshold) | −0.412 ± 0.035 | −0.052 ± 0.036 | **0.18 [0.13, 0.29]** ✓ entangled |
-| 400–600 | −0.204 ± 0.012 | −0.013 ± 0.012 | 0 |
-| 600–800 | −0.089 ± 0.020 | +0.069 ± 0.020 | 0 |
-| > 800 | −0.005 ± 0.024 | +0.112 ± 0.025 | 0 |
-
-Source data: CMS 138 fb⁻¹ at √s = 13 TeV, HEPData record `ins2829523`, tables t9 (values) and t10 (64×64 covariance). See `fig_ttbar_3panel.png` for the full visualization.
-
-As a **theoretical prediction** for a multipartite system not yet measured, applying the RWF flag-complex construction to the Aguilar-Saavedra SM density operator for $H \to ZZ^*$ yields an L-centric tripartite topology with $E_N(L{:}S_i) \approx 1$ bit and $E_N(S_1{:}S_2) \lesssim 0.01$ bits. This section is explicitly a Run 3 target, not a measurement claim.
+1. **The PSD Reconstruction Bias:** Unconstrained coefficient tomography often yields unphysical density matrices (e.g., negative eigenvalues). This pipeline projects samples onto the positive-semidefinite (PSD) cone by clipping eigenvalues and renormalizing. At high violation rates (e.g., 40-54% in threshold bins), this projection introduces uncharacterized systematic biases into the $E_N$ calculation.
+2. **Breakdown of the LO Mapping:** Reconstructing the density matrix from angular coefficients assumes a strict tree-level mapping. In reality, fiducial detector selections and Next-to-Leading Order (NLO) corrections heavily distort these coefficients (see Grossi et al., *JHEP* 12 (2024) 120).
+3. **Topology at Low-$N$:** The flag-complex construction relies strictly on pairwise marginals. For small systems like bipartite ($N=2$) or tripartite ($N=3$), the persistent homology reduces to the pairwise scalars and is blind to genuine multipartite entanglement. It is included here as a visualization tool and scaffolding for future high-multiplicity ($N \gg 3$) environments. 
 
 ---
 
-## What this code does NOT do
+## Pipeline Capabilities
 
-This repo is scoped narrowly. It does not:
+**1. Data Ingestion & Reconstruction**
+* Parses published Fano-Bloch coefficients $(B_\pm, C_{ij})$ from ATLAS/CMS differential measurements via HEPData.
+* Reconstructs the $t\bar{t}$ spin density matrix in the helicity basis.
 
-- Reconstruct events from LHC open data. It uses the published reduced density matrix coefficients from HEPData.
-- Measure the tripartite $H \to ZZ^*$ state. The tripartite operator has not yet been published as a measurement; Aguilar-Saavedra (arXiv:2403.13942) shows Run 3 will get there at >5σ. Until then, the H → ZZ* section here is the SM LO prediction for that operator.
-- Compute CMS's high-mass boosted >5σ entanglement result. That observation uses a |cos θ| < 0.4 selection (HEPData table t11/t12) that this analysis does not yet apply.
-- Compute higher-order QCD corrections or SMEFT effects.
+**2. Covariance-Propagated Uncertainties**
+* Draws 20,000 samples from the multivariate Gaussian utilizing the full $16 \times 16$ intra-bin covariance matrices.
+* Applies PSD projection to maintain Hermiticity and unit trace.
+
+**3. Quantum Information & Topology Modules**
+* Calculates Logarithmic Negativity ($E_N$), alongside conventional scalar witnesses ($D$, $\tilde{D}$).
+* Implements Gudhi-based persistent homology to generate filtration complexes and persistence diagrams for $n$-partite states.
 
 ---
 
@@ -50,7 +39,6 @@ This repo is scoped narrowly. It does not:
 ├── README.md                              # this file
 ├── FINDINGS.md                            # development notes — honest history of what the data showed
 ├── LICENSE                                # MIT
-├── topological_signatures_entanglement.tex # the paper (Overleaf-ready LaTeX)
 ├── fig_ttbar_3panel.png                   # headline figure: E_N, D, D-tilde across m(tt)
 ├── fig1_hzz_edge_weights.png              # H → ZZ* theory prediction: pairwise log-neg
 ├── fig2_hzz_persistence.png               # H → ZZ* persistence diagram
