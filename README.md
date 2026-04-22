@@ -208,4 +208,4 @@ Code: MIT (see `LICENSE`). Paper (LaTeX + figures): CC-BY 4.0.
 
 ## Contact
 
-Trevor Scott · `marquan03@gmail.com` 
+Trevor Scott 
